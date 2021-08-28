@@ -8,6 +8,11 @@ let ground = document.getElementById('container');
 let limit = ground.offsetHeight - box.offsetHeight;
 let speed = 3;
 console.log(limit);
+console.log(box.offsetHeight);
+console.log(ground.offsetHeight);
+
+let text = document.getElementById('text');
+text.innerHTML = '<p>Para cambiar la direccion del tanque presione las flechas del teclado.</p><p> To move the tank, press arrow key directions.</p>';
 
 function moveRight(){
     x += speed;

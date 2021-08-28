@@ -4,23 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TankGame</title>
 </head>
 <body>
     <h1>Battlefield -1</h1>
     
-    <canvas id="container" src = terreno.jpg>
-        <img id="box"> <!--src ='tank2.png'> -->
-    
-    </canvas>
+    <div id="container">   <!--src = terreno.jpg> -->
+        <img id="box" src='./tank2.png'>
+    </div>
+    <div id='text'></div>
     <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        h1 {
+            margin: 0;
+            color: white;
+            text-align: center;
+            letter-spacing: 3px;
+            word-spacing: 15px;
+            padding: 8px;
+            background-color: #0c7a27;
+
+        }
+
+        #text {
+            text-align: center;
+        }
         #container {
+            margin: 1%;
             width: 700px;
             height: 700px;
-            max-width: 700px;
-            max-height: 700px;
             background: rgb(153, 105, 16);
             position: relative;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin-left: auto;
+            margin-right: auto;
         }
         #box {
             width: 50px;
@@ -28,8 +49,9 @@
             background: rgb(4, 211, 14);
             position: absolute;
             background-color: rgba(255, 255, 255, 0.001);
+            
         }
     </style>
-    <script src= 'index.js'></script>
+    <script src='index.js'></script>
 </body>
 </html>
