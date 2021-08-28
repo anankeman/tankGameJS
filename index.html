@@ -8,31 +8,35 @@
 </head>
 <body>
     <h1>Battlefield -1</h1>
+    <div id='score'></div>
     
     <div id="container">   <!--src = terreno.jpg> -->
-        <img id="box" src='./tank2.png'>
-    </div>
+        <img id="box" src='./tank2.png'>    
+    </div> 
     <div id='text'></div>
     <style>
+        .b {
+            width: 5px;
+            height: 5px;
+            background-color: black;
+            position: absolute;
+        }
         body {
             margin: 0;
             font-family: Arial;
+            text-align: center;
         }
 
         h1 {
             margin: 0;
             color: white;
             text-align: center;
-            letter-spacing: 3px;
+            letter-spacing: 10px;
             word-spacing: 15px;
             padding: 8px;
             background-color: #0c7a27;
-
         }
 
-        #text {
-            text-align: center;
-        }
         #container {
             margin: 1%;
             width: 600px;
@@ -43,6 +47,7 @@
             margin-left: auto;
             margin-right: auto;
         }
+
         #box {
             width: 50px;
             height: 50px;
