@@ -6,9 +6,9 @@ class Bullet {
         counterID += 1;
         this.id = counterID;
         this.node = document.createElement('div');
-        this.node.id = this.id
-        this.node.className = 'bullet'
-        ground.appendChild(this.node) //`<div class="b" id="${this.id}"></div>`;
+        this.node.id = this.id;
+        this.node.className = 'bullet';
+        ground.appendChild(this.node);
         this.node.style.top = y1 +'px';
         this.node.style.left = x1 + 'px';
     }
@@ -36,9 +36,10 @@ class Bullet {
         for(let i of colony){
             if(i.insideArea(this.x,this.y)){
                 this.kaboom();
-                 scoreVal += 1;
-                 score.innerHTML = `<div>Score: ${scoreVal}</div>`;
-                 i.die();
+                scoreVal += 1;
+                score.innerHTML = `<div>Score: ${scoreVal}</div>`;
+                i.die();
+                clearInterval(tray); 
             }
          }
         
