@@ -1,0 +1,54 @@
+
+body {
+    margin: 0;
+    font-family: Arial;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    color: white;
+    text-align: center;
+    letter-spacing: 10px;
+    word-spacing: 15px;
+    padding: 8px;
+    background-color: #0c7a27;
+}
+
+#container {
+    margin: 1%;
+    width: 600px;
+    height: 600px;
+    background: rgb(214, 187, 135);
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#box {
+    width: 50px;
+    height: 50px;
+    background: rgb(4, 211, 14);
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.001);
+}
+
+#score {
+    padding: 8px;
+    background-color: black;
+    color: white;
+}
+
+.bullet {
+    width: 5px;
+    height: 5px;
+    background-color: black;
+    position: absolute;
+}
+.enemy {
+    background-color: rgb(151, 9, 9);
+    position: absolute;
+    border: 2px solid rgb(0, 22, 43);
+    border-radius: 5px;
+}

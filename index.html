@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TankGame</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Battlefield -1</h1>
@@ -14,49 +15,10 @@
         <img id="box" src='./tank2.png'>    
     </div> 
     <div id='text'></div>
-    <style>
-        .b {
-            width: 5px;
-            height: 5px;
-            background-color: black;
-            position: absolute;
-        }
-        body {
-            margin: 0;
-            font-family: Arial;
-            text-align: center;
-        }
-
-        h1 {
-            margin: 0;
-            color: white;
-            text-align: center;
-            letter-spacing: 10px;
-            word-spacing: 15px;
-            padding: 8px;
-            background-color: #0c7a27;
-        }
-
-        #container {
-            margin: 1%;
-            width: 600px;
-            height: 600px;
-            background: rgb(214, 187, 135);
-            position: relative;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        #box {
-            width: 50px;
-            height: 50px;
-            background: rgb(4, 211, 14);
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.001);
-            
-        }
-    </style>
+    <script src='Enemy.js'></script>
+    <script src='Bullet.js'></script>
     <script src='index.js'></script>
+    
+    
 </body>
 </html>
