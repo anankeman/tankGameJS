@@ -1,9 +1,13 @@
 // coment
+import Bullet from './Bullet.js';
+import Enemy from './Enemy.js';
+import Tank from './Tank.js';
+
 
 
 // Set ground, tank and ID's counter
 let ground = document.getElementById('container');
-let tanky = new Tank();
+let tanky = new Tank(ground.offsetHeight);
 let limit = ground.offsetHeight - tanky.box.offsetHeight;
 let counterID = 1;
 console.log(limit);
@@ -19,15 +23,16 @@ text.innerHTML = '<p>Para cambiar la direccion del tanque presione las flechas d
 
 // Helper functions
 const shoot = ()=>{ 
-    middleX = tanky.x + Math.floor(tanky.box.offsetHeight/2);
-    middleY = tanky.y + Math.floor(tanky.box.offsetWidth/2);
+    let middleX = tanky.x + Math.floor(tanky.box.offsetHeight/2);
+    let middleY = tanky.y + Math.floor(tanky.box.offsetWidth/2);
     console.log(middleX);
-    boom = new Bullet(middleX, middleY, tanky.direction);
+    let boom = new Bullet(middleX, middleY, tanky.direction, counterID);
+    counterID = boom.id;
 
-    var tray = setInterval(function(){
-        boom.fire();
-    }, 33);
-};
+    boom.t = setInterval(
+        boom.fire(colony)//.bind(boom)
+    , 33);
+}; 
 
 const getRndInteger = (min, max) => {
     return Math.floor(Math.random() * (max - min) ) + min;
@@ -39,16 +44,14 @@ const enemyInvasion = (numEnemies) => {
         let xe = getRndInteger(0, limit);
         let ye = getRndInteger(ground.offsetHeight/2, limit);
         let size = getRndInteger(10, 40);
-        base[i] = new Enemy(xe, ye, size);
+        base[i] = new Enemy(xe, ye, size, counterID);
+        counterID = base[i].id;
     }
     return base;
 }
 
 //Start game
 let colony = enemyInvasion(5);
-let t = setInterval(function(){
-    tanky.moveLeft();
-    }, 33);
 
 
 // Keyboard actions
@@ -56,25 +59,21 @@ document.addEventListener('keydown', (event)=>{
     let name = event.key;
     let code = event.code;
     if (name == 'ArrowRight'){
-        clearInterval(t);
-        t = setInterval(function(){
-            tanky.moveRight();
-        }, 33);
+        clearInterval(tanky.t);
+        tanky.t = setInterval(
+            tanky.moveRight.bind(tanky), 33);
     } else if (name == 'ArrowLeft'){
-        clearInterval(t);
-        t = setInterval(function(){
-            tanky.moveLeft();
-        }, 33);
+        clearInterval(tanky.t);
+        tanky.t = setInterval(
+            tanky.moveLeft.bind(tanky), 33);
     } else if (name == 'ArrowDown'){
-        clearInterval(t);
-        t = setInterval(function(){
-            tanky.moveDown();
-        }, 33);
+        clearInterval(tanky.t);
+        tanky.t = setInterval(
+            tanky.moveDown.bind(tanky), 33);
     } else if (name == 'ArrowUp'){
-        clearInterval(t);
-        t = setInterval(function(){
-            tanky.moveUp();
-        }, 33);
+        clearInterval(tanky.t);
+        tanky.t = setInterval(
+            tanky.moveUp.bind(tanky), 33);
     } else if (code == 'Space'){
         shoot();
     }

@@ -1,20 +1,19 @@
-class Enemy {
-    constructor(xe,ye,size){
+export default class Enemy {
+    constructor(xe,ye,size, counterID){
         this.x =xe;
         this.y = ye;
         this.size = size;
         //ground = document.getElementById('container');
-        counterID += 1;
-        this.id = counterID;
+        this.id = counterID + 1;
         this.node = document.createElement('div');
-        this.node.id = this.id
-        this.node.className = 'enemy'
-        ground.appendChild(this.node) 
+        this.node.id = this.id;
+        this.node.className = 'enemy';
+        this.ground = document.getElementById('container');
+        this.ground.appendChild(this.node);
         this.node.style.top = ye +'px';
         this.node.style.left = xe + 'px';
         this.node.style.width = size + 'px';
         this.node.style.height = size + 'px';
-
     }
 
     insideArea(x,y){
