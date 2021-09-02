@@ -1,8 +1,8 @@
 export default class Bullet {
-    constructor(x1, y1, direct, counterID) {
+    constructor(x1, y1, direction, counterID, colony) {
         this.x = x1;
         this.y = y1;
-        this.direction = direct; 
+        this.direction = direction; 
         counterID += 1;
         this.id = counterID;
         this.node = document.createElement('div');
@@ -12,11 +12,12 @@ export default class Bullet {
         this.ground.appendChild(this.node);
         this.node.style.top = y1 +'px';
         this.node.style.left = x1 + 'px';
+        this.colony = colony;
         this.t;// = setInterval(this.fire.bind(this), 50);
         
     }
 
-    fire(colony){
+    fire(){
         let power = 5;
         if (this.direction =='up'){
             this.y -= power;
@@ -32,19 +33,20 @@ export default class Bullet {
             this.node.style.left = this.x +'px';
         };
 
-
+        //hit a border
         if(this.x > this.ground.offsetHeight || this.x < 0 || this.y > this.ground.offsetHeight || this.y < 0){
             this.kaboom();
-            clearInterval(tray); 
+            //clearInterval(this.t); 
         }
-        for(let i of colony){
+        //hit an enemy
+        for(let i of this.colony){
             if(i.insideArea(this.x,this.y)){
                 this.kaboom();
-                scoreVal += 1;
-                score = getElementById('score');
-                score.innerHTML = `<div>Score: ${scoreVal}</div>`;
+                let score = document.getElementById('score');
+                let scoreVal = parseInt(score.innerText.split(':')[1],10);
+                score.innerText = `Score: ${scoreVal + 1}`;
                 i.die();
-                clearInterval(tray); 
+                //clearInterval(this.t); 
             }
          }
         
@@ -53,7 +55,7 @@ export default class Bullet {
     kaboom(){
         let element = document.getElementById(this.id);
         element.parentNode.removeChild(element);
-
+        clearInterval(this.t);
         console.log(this.id + " deleted");
     }
 };

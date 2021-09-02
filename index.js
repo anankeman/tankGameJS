@@ -15,7 +15,7 @@ console.log(limit);
 // Set score
 let score = document.getElementById('score');
 let scoreVal = 0;
-score.innerHTML = `<div>Score: ${scoreVal}</div>`;
+score.innerText = `Score: ${scoreVal}`;
 
 //Set instructions
 let text = document.getElementById('text');
@@ -26,12 +26,12 @@ const shoot = ()=>{
     let middleX = tanky.x + Math.floor(tanky.box.offsetHeight/2);
     let middleY = tanky.y + Math.floor(tanky.box.offsetWidth/2);
     console.log(middleX);
-    let boom = new Bullet(middleX, middleY, tanky.direction, counterID);
+    let boom = new Bullet(middleX, middleY, tanky.direction, counterID, colony);
     counterID = boom.id;
 
     boom.t = setInterval(
-        boom.fire(colony)//.bind(boom)
-    , 33);
+        boom.fire.bind(boom)
+     , 33);
 }; 
 
 const getRndInteger = (min, max) => {
