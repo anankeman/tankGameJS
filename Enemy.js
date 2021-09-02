@@ -36,8 +36,8 @@ export default class Enemy {
     die(){
         let element = document.getElementById(this.id);
         element.parentNode.removeChild(element);
-
         console.log(this.id + " enemy deleted");
+        this.y, this.x = -1;
     }
 	
 	

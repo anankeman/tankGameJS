@@ -45,7 +45,7 @@ export default class Tank{
         this.direction = "down";
     }
     
-    moveUp() {
+    moveUp(colony) {
         if (this.y<=0){
             clearInterval(this.t);
         } else {
@@ -54,7 +54,9 @@ export default class Tank{
         this.box.style.top = this.y + "px";
         this.box.style.transform = "rotate(180deg) scaleX(-1)";
         this.direction = "up";
+        //checkDamage();
     }
+    
 
 
 }

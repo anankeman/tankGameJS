@@ -35,8 +35,7 @@ export default class Bullet {
 
         //hit a border
         if(this.x > this.ground.offsetHeight || this.x < 0 || this.y > this.ground.offsetHeight || this.y < 0){
-            this.kaboom();
-            //clearInterval(this.t); 
+            this.kaboom(); 
         }
         //hit an enemy
         for(let i of this.colony){
@@ -46,7 +45,6 @@ export default class Bullet {
                 let scoreVal = parseInt(score.innerText.split(':')[1],10);
                 score.innerText = `Score: ${scoreVal + 1}`;
                 i.die();
-                //clearInterval(this.t); 
             }
          }
         
